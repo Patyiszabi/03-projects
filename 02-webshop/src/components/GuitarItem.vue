@@ -1,6 +1,8 @@
 <script setup>
 import { useCartStore } from '../store/cart.js'
+import GuitarDescr from './GuitarDescr.vue';
 import GuitarImage from './GuitarImage.vue';
+import GuitarTitle from './GuitarTitle.vue';
 
 defineProps({
   guitar: {
@@ -15,7 +17,8 @@ const { addToCart } = useCartStore()
 <template>
   <li class="guitar">
     <GuitarImage :title="guitar.title" />
-    <p>{{ guitar.description }}</p>
+    <GuitarTitle :title="guitar.title" />
+    <GuitarDescr  :description="guitar.description" />
     <p>
       <strong>${{ guitar.price }}</strong> · Rating: {{ guitar.rating }}/5 ·
       {{ guitar.stock > 0 ? `${guitar.stock} in stock` : 'Out of stock' }}
